@@ -1,0 +1,11 @@
+.TodoBody {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}

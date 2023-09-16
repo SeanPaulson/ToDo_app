@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 10% 5%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px 10px lightslategray;
+  width: 80%;
+  height: 80%;
+  overflow: visible;
+}
