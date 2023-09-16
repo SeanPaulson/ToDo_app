@@ -1,7 +1,12 @@
 import axios from "axios";
 
+let API_URL = 'http://localhost:9001'
+if (import.meta.env.PROD) {
+  API_URL = "https://todo-app-7lr8.onrender.com"
+}
+
 const todoClient = axios.create({
-  baseURL: "http://localhost:9001",
+  baseURL: API_URL,
 });
 
 export const fetchLists = async () => {
