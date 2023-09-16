@@ -7,19 +7,20 @@ import "./Sidebar.css";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 export default function Sidebar() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
   const { state, dispatch } = useContext(ContextApp);
   const [listState, setListState] = useState()
 
   useEffect(() => {
     setListState(state.lists)
-  }, [state])
-  // { listName }
+  }, [state.lists])
+
   const submit = ({ listName }) => {
     createList(listName).then((res) => {
       const newListItem = res;
       if (newListItem) {
         dispatch({ type: "createList", payload: newListItem });
+        reset();
       }
     });
   };
@@ -67,7 +68,7 @@ export default function Sidebar() {
           <input
             type="text"
             placeholder="Create A list"
-            value={setValue("listName", "")}
+            onChange={(e) => setValue(e.target.value)}
             {...register("listName", { min: 1, maxLength: 20, required: true })}
           />
         </form>
